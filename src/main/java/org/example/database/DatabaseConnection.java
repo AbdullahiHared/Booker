@@ -27,7 +27,7 @@ public class DatabaseConnection {
     }
 
     public static void initializeSchema() {
-        String schemaPath = "src/sql/schema.sql"; // Adjust path if needed
+        String schemaPath = "src/sql/schema.sql"; // Path to the schema file
 
         try (Connection conn = getConnection();
              BufferedReader br = new BufferedReader(new FileReader(schemaPath))) {
