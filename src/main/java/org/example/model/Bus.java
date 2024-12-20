@@ -14,6 +14,9 @@ public class Bus {
         this.capacity = capacity;
     }
 
+    public Bus() {
+    }
+
     // Getters and Setters
     public int getId() {
         return id;
