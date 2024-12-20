@@ -65,5 +65,30 @@ public class BusDAO {
         return bus;
     }
 
+    public void updateBus(Bus bus) {
+        String query = "UPDATE buses SET name = ?, route = ?, capacity = ? WHERE id = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(query);) {
+            pstmt.setString(1, bus.getName());
+            pstmt.setString(2, bus.getRoute());
+            pstmt.setInt(3, bus.getCapacity());
+            pstmt.setInt(4, bus.getId());
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void deleteBus(int id) {
+        String query = "DELETE FROM buses WHERE id = ?";
+        try (PreparedStatement pstmt = connection.prepareStatement(query);) {
+            pstmt.setInt(1, id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+    }
 
 }
