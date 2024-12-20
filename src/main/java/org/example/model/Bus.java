@@ -1,4 +1,4 @@
-package org.example.dao;
+package org.example.model;
 
 public class Bus {
     private int id;
