@@ -2,23 +2,25 @@ package org.example.model;
 
 public class User {
     private int id;
-    private String name;
     private String email;
+    private String name;
+    private String password; // Add password for authentication (optional)
 
-    // Constructor
-    public User(int id, String name, String email) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-    }
-
-    // Getter and Setter methods
+    // Getters and setters
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -29,11 +31,11 @@ public class User {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPassword() {
+        return password;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
