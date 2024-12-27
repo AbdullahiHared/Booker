@@ -6,12 +6,20 @@ import java.sql.Statement;
 public class SchemaInitializer {
     public static void initializeSchema(Connection connection) {
         String createTableSQL = """
-            CREATE TABLE IF NOT EXISTS BUSES (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                name VARCHAR(100) NOT NULL,
-                route VARCHAR(100) NOT NULL,
-                capacity INT NOT NULL
-            )
+                CREATE TABLE IF NOT EXISTS buses (
+                    id INT PRIMARY KEY AUTO_INCREMENT,
+                    name VARCHAR(255) NOT NULL,
+                    route VARCHAR(255) NOT NULL,
+                    capacity INT NOT NULL
+                )
+                
+                CREATE TABLE IF NOT EXISTS booking (
+                    id INT PRINTARY KEY AUTO_INCREMENT,
+                    bus_id INT NOT NULL,
+                    passenger_name VARCHAR(255) NOT NULL,
+                    booking_date DATE NOT NULL,
+                    FOREIGN KEY (bus_id) REFERENCES buses(id)
+                )
             """;
 
         try (Statement statement = connection.createStatement()) {
