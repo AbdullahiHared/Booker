@@ -16,10 +16,10 @@ public class BookingDAO {
 
     // Add a new booking
     public void addBooking(Booking booking) {
-        String query = "INSERT INTO booking(bus_id, user_id, booking_date) VALUES(?, ?, ?)";
+        String query = "INSERT INTO booking(bus_id, passenger_name, booking_date) VALUES(?, ?, ?)";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setInt(1, booking.getBusId());
-            pstmt.setInt(2, booking.getUserId());
+            pstmt.setString(2, booking.getPassengerName());
             pstmt.setDate(3, new java.sql.Date(booking.getBookingDate().getTime()));
             pstmt.executeUpdate();
         } catch (SQLException e) {
@@ -37,7 +37,7 @@ public class BookingDAO {
                 Booking booking = new Booking();
                 booking.setId(rs.getInt("id"));
                 booking.setBusId(rs.getInt("bus_id"));
-                booking.setUserId(rs.getInt("user_id"));
+                booking.setPassengerName(rs.getString("passenger_name"));
                 booking.setBookingDate(rs.getDate("booking_date"));
                 bookings.add(booking);
             }
@@ -58,7 +58,7 @@ public class BookingDAO {
                     booking = new Booking();
                     booking.setId(rs.getInt("id"));
                     booking.setBusId(rs.getInt("bus_id"));
-                    booking.setUserId(rs.getInt("user_id"));
+                    booking.setPassengerName(rs.getString("passenger_name"));
                     booking.setBookingDate(rs.getDate("booking_date"));
                 }
             }
@@ -73,7 +73,7 @@ public class BookingDAO {
         String query = "UPDATE booking SET bus_id = ?, user_id = ?, booking_date = ? WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setInt(1, booking.getBusId());
-            pstmt.setInt(2, booking.getUserId());
+            pstmt.setString(2, booking.getPassengerName());
             pstmt.setDate(3, new java.sql.Date(booking.getBookingDate().getTime()));
             pstmt.setInt(4, booking.getId());
             pstmt.executeUpdate();

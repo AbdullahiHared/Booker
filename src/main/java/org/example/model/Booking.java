@@ -1,26 +1,20 @@
 package org.example.model;
 
+import java.util.Date;
+
 public class Booking {
-    private int bookingId;
+    private int id;
     private int busId;
-    private String username;
-    private String date;
+    private String passengerName;
+    private Date bookingDate;
 
-    // Constructor
-    public Booking(int bookingId, int busId, String username, String date) {
-        this.bookingId = bookingId;
-        this.busId = busId;
-        this.username = username;
-        this.date = date;
+    // Getters and setters
+    public int getId() {
+        return id;
     }
 
-    // Getters and Setters
-    public int getBookingId() {
-        return bookingId;
-    }
-
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getBusId() {
@@ -31,30 +25,30 @@ public class Booking {
         this.busId = busId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getPassengerName() {
+        return passengerName;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setPassengerName(String passengerName) {
+        this.passengerName = passengerName;
     }
 
-    public String getDate() {
-        return date;
+    public Date getBookingDate() {
+        return bookingDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setBookingDate(Date bookingDate) {
+        this.bookingDate = bookingDate;
     }
 
-    // toString method
     @Override
     public String toString() {
         return "Booking{" +
-                "bookingId=" + bookingId +
+                "id=" + id +
                 ", busId=" + busId +
-                ", username='" + username + '\'' +
-                ", date='" + date + '\'' +
+                ", passengerName=" + passengerName +
+                ", bookingDate=" + bookingDate +
                 '}';
     }
+
 }
