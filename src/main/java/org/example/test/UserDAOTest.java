@@ -24,6 +24,11 @@ public class UserDAOTest {
             user.setName("test1");
             user.setPassword("test1");
 
+            // test : retrieve user by id
+            User retriedUser = userDAO.getUser(1);
+            System.out.println("Retrieved user: " + retriedUser);
+
+
         }  catch (Exception e) {
             e.printStackTrace();
         }
