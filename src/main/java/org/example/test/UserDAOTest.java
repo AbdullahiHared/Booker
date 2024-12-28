@@ -23,9 +23,11 @@ public class UserDAOTest {
             user.setEmail("test1@example.com");
             user.setName("test1");
             user.setPassword("test1");
+            userDAO.insertUser(user);
+
 
             // test : retrieve user by id
-            User retriedUser = userDAO.getUser(1);
+            User retriedUser = userDAO.getUserById(1);
             System.out.println("Retrieved user: " + retriedUser);
 
 
