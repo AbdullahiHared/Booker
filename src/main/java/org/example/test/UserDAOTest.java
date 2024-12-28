@@ -25,11 +25,24 @@ public class UserDAOTest {
             user.setPassword("test1");
             userDAO.insertUser(user);
 
+            User user2 = new User();
+            user2.setId(2);
+            user2.setEmail("test2@example.com");
+            user2.setName("test2");
+            user2.setPassword("test2");
+            userDAO.insertUser(user2);
+
 
             // test : retrieve user by id
             User retriedUser = userDAO.getUserById(1);
-            System.out.println("Retrieved user: " + retriedUser);
+            // System.out.println("Retrieved user: " + retriedUser);
 
+            // test : delete user by id
+            System.out.println("Delete user: " + userDAO.getUserById(2));
+            userDAO.deleteUserById(2);
+
+            // Test: get all users
+            System.out.println("All users: " + userDAO.getAllUsers());
 
         }  catch (Exception e) {
             e.printStackTrace();
