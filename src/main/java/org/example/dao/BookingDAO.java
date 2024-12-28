@@ -83,7 +83,7 @@ public class BookingDAO {
     }
 
     // Delete a booking
-    public void deleteBooking(int id) {
+    public void deleteBookingById(int id) {
         String query = "DELETE FROM booking WHERE id = ?";
         try (PreparedStatement pstmt = connection.prepareStatement(query)) {
             pstmt.setInt(1, id);
