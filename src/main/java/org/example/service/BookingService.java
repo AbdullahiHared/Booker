@@ -34,4 +34,30 @@ public class BookingService {
         System.out.println("Booking updated.");
         return true;
     }
+
+    // Delete booking
+    public boolean deleteBooking(int bookingId) {
+        if(bookingId <= 0) {
+            System.out.println("Invalid booking id: Booking not deleted.");
+            return false;
+        }
+        bookingDAO.deleteBookingById(bookingId);
+        System.out.println("Booking deleted.");
+        return true;
+    }
+
+    //Get booking by id
+    public boolean getBookingById(int bookingId) {
+        if(bookingId <= 0) {
+            System.out.println("Invalid booking id: No booking with given id.");
+            return false;
+        }
+        bookingDAO.getBookingById(bookingId);
+        return true;
+    }
+
+    // get all bookings
+    public List<Booking> getBookings() {
+            return bookingDAO.getAllBookings();
+    }
 }
