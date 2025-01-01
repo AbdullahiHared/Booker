@@ -6,7 +6,6 @@ import org.example.database.DatabaseConnection;
 import org.example.database.SchemaInitializer;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 
 public class UserDAOTest {
     public static void main(String[] args) {

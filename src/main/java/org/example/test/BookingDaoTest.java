@@ -50,6 +50,16 @@ public class BookingDaoTest {
             System.out.println("Booking by ID:");
             System.out.println(bookingById.getId() + ": " + bookingById.getBusId() + " - " +
                     bookingById.getPassengerName() + " - " + bookingById.getBookingDate());
+
+            //Test: Delete booking by ID
+            System.out.println("Deleting booking with ID 1");
+            bookingDAO.deleteBookingById(1);
+
+            // Test: Retrieve all bookings after deletion
+            System.out.println("All Bookings after deletion:");
+            bookingDAO.getAllBookings().forEach(booking ->
+                    System.out.println(booking.getId() + ": " + booking.getBusId() + " - " +
+                            booking.getPassengerName() + " - " + booking.getBookingDate()));
         } catch (Exception e) {
             e.printStackTrace();
         }
