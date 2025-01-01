@@ -6,7 +6,16 @@ public class Booking {
     private int id;
     private int busId;
     private String passengerName;
-    private Date bookingDate;
+    private String bookingDate;
+    private String bookingTime;
+
+    // Constructor
+    public Booking(String passengerName, String busId, String bookingDate, String bookingTime) {
+        this.passengerName = passengerName;
+        this.busId = Integer.parseInt(busId);
+        this.bookingDate = bookingDate;
+        this.bookingTime = bookingTime;
+    }
 
     // Getters and setters
     public int getId() {
@@ -33,12 +42,12 @@ public class Booking {
         this.passengerName = passengerName;
     }
 
-    public Date getBookingDate() {
+    public String getBookingDate() {
         return bookingDate;
     }
 
     public void setBookingDate(Date bookingDate) {
-        this.bookingDate = bookingDate;
+        this.bookingDate = String.valueOf(bookingDate);
     }
 
     @Override
